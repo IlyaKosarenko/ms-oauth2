@@ -31,12 +31,13 @@ public class ClientsConfiguration {
                         RegisteredClient
                                 .withId(UUID.randomUUID().toString())
                                 .clientId(clientId)
-                                .clientSecret("{noop}secret")
+                                .clientSecret("{bcrypt}$2a$10$m0oaL6bAwdT6D8tuIjyZd.FoJ7eGfiavBGBXAje28x5zDPCU7CJh2")
                                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                                 .authorizationGrantTypes(grantTypes -> grantTypes.addAll(Set.of(
                                         AuthorizationGrantType.CLIENT_CREDENTIALS,
                                         AuthorizationGrantType.AUTHORIZATION_CODE,
-                                        AuthorizationGrantType.REFRESH_TOKEN)))
+                                        AuthorizationGrantType.REFRESH_TOKEN,
+                                        AuthorizationGrantType.JWT_BEARER)))
                                 .redirectUri("http://127.0.0.1:8081/login/oauth2/code/spring")
                                 .scopes(scopes -> scopes.addAll(Set.of("user.read", "user.write", OidcScopes.OPENID)))
                                 .build()
@@ -48,12 +49,13 @@ public class ClientsConfiguration {
                         RegisteredClient
                                 .withId(UUID.randomUUID().toString())
                                 .clientId(clientId)
-                                .clientSecret("{noop}client")
+                                .clientSecret("{bcrypt}$2a$10$XJyC7lvQNodesSWAYKSg/eh1Cu0fjVRgkkQIQAX9OXQqMdJNUYam6")
                                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                                 .authorizationGrantTypes(grantTypes -> grantTypes.addAll(Set.of(
                                         AuthorizationGrantType.CLIENT_CREDENTIALS,
                                         AuthorizationGrantType.AUTHORIZATION_CODE,
-                                        AuthorizationGrantType.REFRESH_TOKEN)))
+                                        AuthorizationGrantType.REFRESH_TOKEN,
+                                        AuthorizationGrantType.JWT_BEARER)))
                                 .redirectUri("http://127.0.0.1:8082/login/oauth2/code/spring")
                                 .scopes(scopes -> scopes.addAll(Set.of("user.read", "user.write", OidcScopes.OPENID)))
                                 .build()
