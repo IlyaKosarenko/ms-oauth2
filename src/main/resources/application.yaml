@@ -2,7 +2,7 @@ spring:
   datasource:
     password: password
     username: postgres
-    url: jdbc:postgresql://localhost:5432/postgresdb?currentSchema=public
+    url: jdbc:postgresql://localhost:5432/postgresdb?currentSchema=oauth2
   sql:
     init:
       mode: always

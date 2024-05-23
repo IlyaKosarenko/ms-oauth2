@@ -5,14 +5,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 
 import javax.sql.DataSource;
 import java.util.Map;
-import java.util.Set;
 
 @Configuration
 public class UsersConfiguration {
@@ -33,7 +31,7 @@ public class UsersConfiguration {
         return args -> {
             var builder = User.builder();
             var users = Map.of(
-                    "ilya","{bcrypt}$2a$10$7aDC00HWBWHpJWjeo5CqJeWa0AfTBR6lrl7P36dy5diUJu/bZEXe.",
+                    "ilya", "{bcrypt}$2a$10$7aDC00HWBWHpJWjeo5CqJeWa0AfTBR6lrl7P36dy5diUJu/bZEXe.",
                     "roma", "{bcrypt}$2a$10$7aDC00HWBWHpJWjeo5CqJeWa0AfTBR6lrl7P36dy5diUJu/bZEXe.");
             users.forEach((username, password) -> {
                 if (!userDetailsManager.userExists(username)) {
